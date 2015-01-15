@@ -1,7 +1,7 @@
 <div ng-controller="View1Ctrl">
 
 
-<select ng-model="timeSlotSelected" ng-options="o as o for o in timeSlotOptions" ng-init="0">
+<select ng-model="timeSlotSelected" ng-options="o as o.label for o in timeSlotOptions" ng-init="0">
 	<!-- <option>6:00am</option>
 	<option selected="selected">6:30am</option> -->
 </select>

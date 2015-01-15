@@ -11,8 +11,10 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', function(sc) {
 
-
-	sc.timeSlotOptions = ["06:00am", "06:30am", "07:00am"];
+	sc.timeSlotOptions = [
+    { label: '06:30am', value: '06:30' },
+    { label: '07:00am', value: '07:00' }
+  ];
 
 	sc.timeSlotSelected = sc.timeSlotOptions[0];
 
