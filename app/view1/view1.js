@@ -9,6 +9,20 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('View1Ctrl', ['$scope', function(sc) {
+
+
+	sc.timeSlotOptions = ["06:00am", "06:30am", "07:00am"];
+
+	sc.timeSlotSelected = sc.timeSlotOptions[0];
+
+	//this.slots = ["06:00am", "06:30am", "07:00am"];
+
+	// create and initialise function that is called on page load
+
+	// generate an array of time slots and bind to a model
+
 
 }]);
+
+//var slots = ["06:00am", "06:30am", "07:00am"];
