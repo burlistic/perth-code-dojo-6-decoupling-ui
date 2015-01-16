@@ -40,11 +40,6 @@ angular.module('myApp.view1', ['ngRoute'])
     minute : currentTimeService.getMinutes()
   };
 
-  var endOfTheDay = new Date();
-  endOfTheDay.setHours(17);
-  endOfTheDay.setMinutes(30);
-  endOfTheDay.setSeconds(0);
-  endOfTheDay.setMilliseconds(0);
 
   var startOfTheDay = new Date();
   startOfTheDay.setHours(7);
@@ -52,10 +47,21 @@ angular.module('myApp.view1', ['ngRoute'])
   startOfTheDay.setSeconds(0);
   startOfTheDay.setMilliseconds(0);
 
+  var endOfTheDay = new Date();
+  endOfTheDay.setHours(23);
+  endOfTheDay.setMinutes(30);
+  endOfTheDay.setSeconds(0);
+  endOfTheDay.setMilliseconds(0);
+
   var ctr = 0;
   while(new Date(endOfTheDay.getFullYear(), endOfTheDay.getMonth(), endOfTheDay.getDate(), time.hour, time.minute, 0, 0) <= endOfTheDay)
   {
-      timeSlotServiceInstance.slots[ctr] = time;
+
+      if(time.hour >= startOfTheDay.getHours())
+      {
+        timeSlotServiceInstance.slots[ctr] = time.hour + ': '+ time.minute;
+        ctr++;
+      }
 
       // move into seperate method... service ?
       if(time.minute === 30){
@@ -64,8 +70,6 @@ angular.module('myApp.view1', ['ngRoute'])
       } else {
         time.minute = 30;
       }
-
-      ctr++;
   }
 
   return timeSlotServiceInstance;
