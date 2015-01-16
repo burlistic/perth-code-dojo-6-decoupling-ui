@@ -24,7 +24,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
 }])
 
-.factory('timeSlotService', ['$window', 'currentTimeService', function(win, currentTimeService) {
+.factory('timeSlotService', ['currentTimeService', function(currentTimeService) {
   var timeSlotServiceInstance = {
     slots : []
   }

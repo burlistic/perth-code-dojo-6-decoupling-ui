@@ -16,23 +16,23 @@ describe('myApp.view1 module', function() {
 
   });
 
- //  describe('view1 timeSlotService', function(){
+  describe('view1 timeSlotService', function(){
 
- //  	var timeSlotService;
+  	var timeSlotService;
 
- //  	beforeEach(function() {
+  	beforeEach(function() {
 
-	//   inject(function($injector) {
-	//     timeSlotService = $injector.get('timeSlotService');
-	//   });
-	// });
+	  inject(function($injector) {
+	    timeSlotService = $injector.get('timeSlotService');
+	  });
+	});
 
 
- //    it('should populate 34 half hour slots for a full day', inject(function($service) {
- //      //spec body
- //      expect(timeSlotService.slots.length).toEqual(12);
- //    }));
+    it('should populate 34 half hour slots for a full day', inject(function(timeSlotService) {
+      //spec body
+      expect(timeSlotService.slots.length).toEqual(12);
+    }));
 
- //  });
+  });
 
 });
