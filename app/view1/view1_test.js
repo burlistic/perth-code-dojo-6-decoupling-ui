@@ -22,7 +22,7 @@ describe('myApp.view1 module', function() {
 
   	beforeEach(function() {
 
-      mockCurrentTimeService = new Date(2014, 8, 4, 6, 0, 0);
+      mockCurrentTimeService = new Date(2015, 1, 16, 0, 0, 0);
 
       module(function ($provide) {
           $provide.value('currentTimeService', mockCurrentTimeService);
@@ -37,7 +37,7 @@ describe('myApp.view1 module', function() {
 
     it('should populate 34 half hour slots for a full day', inject(function(timeSlotService) {
       //spec body
-      expect(timeSlotService.slots.length).toEqual(12);
+      expect(timeSlotService.slots.length).toEqual(34);
     }));
 
   });
