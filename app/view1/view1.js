@@ -11,7 +11,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', 'timeSlotService', function($scope, timeSlotService) {
 
-  if(timeSlotService.slot === undefined)
+  if(timeSlotService.slots[0] === undefined)
   {
     $scope.timeSlotOptions = [];
     $scope.timeSlotOptions[0] =  {
@@ -61,7 +61,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
   var endOfTheDay = new Date();
   endOfTheDay.setHours(23);
-  endOfTheDay.setMinutes(30);
+  endOfTheDay.setMinutes(0);
   endOfTheDay.setSeconds(0);
   endOfTheDay.setMilliseconds(0);
 

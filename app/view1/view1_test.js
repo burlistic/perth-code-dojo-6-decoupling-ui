@@ -54,9 +54,9 @@ describe('myApp.view1 module', function() {
     	   
         });
 
-        it('should populate 34 half hour slots', inject(function(timeSlotService) {
+        it('should populate 33 half hour slots', inject(function(timeSlotService) {
           //spec body
-          expect(timeSlotService.slots.length).toEqual(34);
+          expect(timeSlotService.slots.length).toEqual(33);
         }));
 
       });
@@ -74,9 +74,9 @@ describe('myApp.view1 module', function() {
          
         });
 
-        it('should populate 6 half hour slots', inject(function(timeSlotService) {
+        it('should populate 5 half hour slots', inject(function(timeSlotService) {
           //spec body
-          expect(timeSlotService.slots.length).toEqual(6);
+          expect(timeSlotService.slots.length).toEqual(5);
         }));
 
       });
