@@ -18,27 +18,44 @@ describe('myApp.view1 module', function() {
 
   describe('view1 timeSlotService', function(){
 
-  	var timeSlotService, mockCurrentTimeService
+      describe('when it is a full day', function(){
 
-  	beforeEach(function() {
+      	var timeSlotService, mockCurrentTimeService
 
-      mockCurrentTimeService = new Date(2015, 1, 16, 0, 0, 0);
+      	beforeEach(function() {
+          mockCurrentTimeService = new Date(2015, 1, 16, 0, 0, 0);
+          module(function ($provide) {
+              $provide.value('currentTimeService', mockCurrentTimeService);
+          });
+    	   
+        });
 
-      module(function ($provide) {
-          $provide.value('currentTimeService', mockCurrentTimeService);
+        it('should populate 34 half hour slots', inject(function(timeSlotService) {
+          //spec body
+          expect(timeSlotService.slots.length).toEqual(34);
+        }));
+
       });
 
-  	  // inject(function($injector) {
-  	  //   timeSlotService = $injector.get('timeSlotService');
-  	  // });
-	   
-    });
 
+      describe('when the time is 20:35', function(){
 
-    it('should populate 34 half hour slots for a full day', inject(function(timeSlotService) {
-      //spec body
-      expect(timeSlotService.slots.length).toEqual(34);
-    }));
+        var timeSlotService, mockCurrentTimeService
+
+        beforeEach(function() {
+          mockCurrentTimeService = new Date(2015, 1, 16, 20, 35, 0);
+          module(function ($provide) {
+              $provide.value('currentTimeService', mockCurrentTimeService);
+          });
+         
+        });
+
+        it('should populate 6 half hour slots', inject(function(timeSlotService) {
+          //spec body
+          expect(timeSlotService.slots.length).toEqual(6);
+        }));
+
+      });
 
   });
 

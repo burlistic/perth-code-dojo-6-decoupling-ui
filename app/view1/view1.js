@@ -54,6 +54,17 @@ angular.module('myApp.view1', ['ngRoute'])
   while(new Date(endOfTheDay.getFullYear(), endOfTheDay.getMonth(), endOfTheDay.getDate(), time.hour, time.minute, 0, 0) <= endOfTheDay)
   {
 
+      // round up to next 30 mins slot
+      if(time.minute > 0 && time.minute < 30)
+      {
+        time.minute = 30;
+      }
+      else if(time.minute > 30)
+      {
+        time.minute = 0;
+        time.hour = time.hour + 1; // ++ not working?
+      }
+
       if(time.hour >= startOfTheDay.getHours())
       {
         timeSlotServiceInstance.slots[ctr] = time.hour + ': '+ time.minute;
