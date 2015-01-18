@@ -11,16 +11,20 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', 'timeSlotService', function($scope, timeSlotService) {
 
-	// inject time object?
+  var formattedSlots = [];
 
-	// test output? Against scope?
+  // todo - unit test controller
+  for(var i = 0; i < timeSlotService.slots.length; i++)
+  {
+    formattedSlots[i] = {
+      label: timeSlotService.slots[i],
+      value: timeSlotService.slots[i]
+    }
+  }
 
-	$scope.timeSlotOptions = [
-    { label: '06:30am', value: '06:30' },
-    { label: '07:00am', value: '07:00' }
-  ];
+  $scope.timeSlotOptions = formattedSlots;
 
-	$scope.timeSlotSelected = $scope.timeSlotOptions[0];
+	$scope.timeSlotSelected = $scope.timeSlotOptions[1];
 
 }])
 
@@ -29,17 +33,10 @@ angular.module('myApp.view1', ['ngRoute'])
     slots : []
   }
 
-  // constructor?
-
-  // factory function body that constructs shinyNewServiceInstance
-
-  //win.console.log(currentTimeService);
-
   var time = {
     hour : currentTimeService.getHours(),
     minute : currentTimeService.getMinutes()
   };
-
 
   var startOfTheDay = new Date();
   startOfTheDay.setHours(7);
