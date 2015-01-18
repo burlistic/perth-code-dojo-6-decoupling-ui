@@ -11,6 +11,16 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', 'timeSlotService', function($scope, timeSlotService) {
 
+  if(timeSlotService.slot === undefined)
+  {
+    $scope.timeSlotOptions = [];
+    $scope.timeSlotOptions[0] =  {
+       label: 'no trains available',
+       value: 0
+    };
+    return;
+  }
+
   var formattedSlots = [];
 
   // todo - unit test controller
@@ -24,7 +34,12 @@ angular.module('myApp.view1', ['ngRoute'])
 
   $scope.timeSlotOptions = formattedSlots;
 
-	$scope.timeSlotSelected = $scope.timeSlotOptions[1];
+  if(formattedSlots.length > 0)
+  {
+    $scope.timeSlotSelected = $scope.timeSlotOptions[1];
+  } else {
+    $scope.timeSlotSelected = $scope.timeSlotOptions[0];
+  }
 
 }])
 
