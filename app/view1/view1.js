@@ -62,7 +62,7 @@ angular.module('myApp.view1', ['ngRoute'])
       else if(time.minute > 30)
       {
         time.minute = 0;
-        time.hour = time.hour + 1; // ++ not working?
+        time.hour++;
       }
 
       if(time.hour >= startOfTheDay.getHours())
