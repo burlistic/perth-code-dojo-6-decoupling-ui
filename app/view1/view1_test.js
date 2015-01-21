@@ -26,13 +26,13 @@ describe('myApp.view1 module', function() {
        
       });
 
-      it('should display "no trains available" message', inject(function($controller) {
+      it('should display "no slots available" message', inject(function($controller) {
         //spec body
         var $scope = {};
 
         var view1Ctrl = $controller('View1Ctrl', { $scope: $scope }); 
         expect($scope.timeSlotOptions.length).toEqual(1);
-        expect($scope.timeSlotOptions[0].label).toEqual('no trains available');
+        expect($scope.timeSlotOptions[0].label).toEqual('no slots available');
       }));
 
     });

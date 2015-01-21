@@ -15,7 +15,7 @@ angular.module('myApp.view1', ['ngRoute'])
   {
     $scope.timeSlotOptions = [];
     $scope.timeSlotOptions[0] =  {
-       label: 'no trains available',
+       label: 'no slots available',
        value: 0
     };
     return;
